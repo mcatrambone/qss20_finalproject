@@ -11,6 +11,8 @@ AHRF 2024-2025 (Area Health Resources File, Bureau of Health Workforce, HRSA (U.
 
 **Data files: **
 
+data/AHRF 2024-2025 Technical Documentation.xlsx is the documentation guide provided by AHRF that can be used to familiarize with the dataset. 
+
 data/AHRF2025geo.csv contains geographic and rural classification variables, such as county codes, rural-urban continuum codes (RUCA), and urban influence codes. 
 
 data/AHRF2025hp.csv contains county-level health professional variables, such as the number of non-federal primary care physicians, total number of specialists, specialty-level counts by speciality, and primary care designations. 
