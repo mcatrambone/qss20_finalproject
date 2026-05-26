@@ -1,14 +1,10 @@
 """
-02_plots.py
------------
-Produce the two Milestone 1 starter visualizations.
-
 Input:
-    analytic_ahrf.csv       -- output of 01_clean.py
+analytic_ahrf.csv (Output of 01_clean.py)
 
 Outputs:
-    pcp_mortality_ruca.png  -- scatter: PCP supply vs. mortality by rurality
-    mortality_rurality_hpsa.png -- boxplot: mortality by rurality × HPSA status
+pcp_mortality_ruca.png (Scatter of PCP supply vs. mortality by rurality
+mortality_rurality_hpsa.png (Boxplot of mortality by rurality and HPSA status) 
 """
 
 import pandas as pd
@@ -16,11 +12,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 
-# ── Load ──────────────────────────────────────────────────────────────────────
+# Load
 df = pd.read_csv("analytic_ahrf.csv", low_memory=False)
 print(f"Loaded analytic file: {df.shape}")
 
-# ── Plot 1: PCP supply vs. mortality, colored by rurality ─────────────────────
+# Plot 1: PCP supply vs. mortality, colored by rurality  
 fig, ax = plt.subplots(figsize=(9, 6))
 
 colors = {
@@ -55,11 +51,10 @@ ax.set_title(
 ax.legend(title="Rurality (RUCC)", fontsize=9, title_fontsize=9)
 
 plt.tight_layout()
-plt.savefig("pcp_mortality_ruca.png", dpi=180, bbox_inches="tight")
+plt.savefig("output/pcp_mortality_ruca.png", dpi=180, bbox_inches="tight")
 plt.close()
-print("Saved → pcp_mortality_ruca.png")
 
-# ── Plot 2: Mortality boxplots by rurality × HPSA designation ─────────────────
+# Plot 2: Mortality boxplots by rurality × HPSA designation
 fig, ax = plt.subplots(figsize=(10, 6))
 
 rurality_cats = ["Metro (RUCA 1–3)", "Small Urban (RUCA 4–6)", "Rural (RUCA 7–9)"]
@@ -117,6 +112,5 @@ for pos, data in zip(positions, box_data):
     )
 
 plt.tight_layout()
-plt.savefig("mortality_rurality_hpsa.png", dpi=180, bbox_inches="tight")
+plt.savefig("output/mortality_rurality_hpsa.png", dpi=180, bbox_inches="tight")
 plt.close()
-print("Saved → mortality_rurality_hpsa.png")
