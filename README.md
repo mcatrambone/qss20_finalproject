@@ -7,7 +7,7 @@ This project compares drive-time-based accessibility measures against convention
 
 **Data source: **
 
-AHRF 2024–2025 (Area Health Resources File, Bureau of Health Workforce, HRSA (U.S. DHHS)). County-level compendium drawing from AMA physician data, Census Bureau population estimates, CMS, and ERS rural classification systems. Full variable documentation is located in data/AHRF_2024-2025_Technical_Documentation.xlsx.
+AHRF 2024-2025 (Area Health Resources File, Bureau of Health Workforce, HRSA (U.S. DHHS)). County-level compendium drawing from AMA physician data, Census Bureau population estimates, CMS, and ERS rural classification systems. Full variable documentation is located in data/AHRF_2024-2025_Technical_Documentation.xlsx.
 
 **Data files: **
 
