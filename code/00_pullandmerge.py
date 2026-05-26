@@ -8,7 +8,7 @@ data/AHRF2025hp.csv   (Health professions variables)
 data/AHRF2025pop.csv  (Population, mortality, and SES variables)
 
 Output:
-merged_ahrf.csv        -- all three files joined on fips_st_cnty
+merged_ahrf.csv (All three files joined on fips_st_cnty)
 """
 
 import pandas as pd
