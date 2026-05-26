@@ -1,7 +1,26 @@
-# qss20_finalproject
+# QSS 20 Final Project - Matt Catrambone
 Public repository for my final project in QSS20 regarding rural health disparities. 
 
+Research question: Does spatiotemporal access to care predict county-level mortality better than traditional provider-to-population ratios in rural U.S. counties?
 
-This project asks whether spatiotemporal accessibility to care (measured by drive time to the nearest provider or hospital and telehealth availability ) predicts county-level mortality better than traditional provider-to-population ratios in rural U.S. counties. Beyond primary care, I extend this comparison to specialist supply and disease-specific mortality outcomes to ask which combination of access measures best predicts cause-specific death rates for con- ditions like cardiovascular disease and diabetes that are known to be sensitive to specialist availability. Rural counties often appear adequately served by conventional supply met- rics like PCP-to-population ratios or HPSA designations, yet face measurably worse health outcomes. By directly comparing these two frameworks across multiple disease contexts, I project aim to identify whether standard measurement approaches miss a meaningful dimen- sion of access that disproportionately burdens rural populations. Hopefully it will illuminate more geographically tailored strategies for identifying the counties most at risk.
+This project compares drive-time-based accessibility measures against conventional supply metrics (PCP-to-population ratios, HPSA designations) as predictors of all-cause and disease-specific mortality, stratified by rurality. Data are county-level from the AHRF 2024–2025 release, supplemented with FCC broadband data and OpenStreetMap road network data.
 
-The primary dataset is AHRF 2024-2025 which provides county-level variables including non-federal primary care physician counts, total population estimates from the Census (which can used to calculate the ratio), rural-urban continuum codes (RUCA) (which are the standard for rural health research), HPSA primary care designation status, all-cause mortality rates, and disease-specific mortality rates. Drive-time estimates to the nearest PCP will be constructed using OpenStreetMap road network data and county population centroid coordinates. Together these fields support a cross-sectional county-level analysis comparing spatiotem- poral access measures and traditional measures (across both primary care and specialist supply) as predictors of all-cause and disease-specific mortality outcomes that are stratified by rurality category.
+**Data source: **
+
+AHRF 2024–2025 (Area Health Resources File, Bureau of Health Workforce, HRSA (U.S. DHHS)). County-level compendium drawing from AMA physician data, Census Bureau population estimates, CMS, and ERS rural classification systems. Full variable documentation is located in data/AHRF_2024-2025_Technical_Documentation.xlsx.
+
+**Data files: **
+
+data/AHRF2025geo.csv contains geographic and rural classification variables, such as county codes, rural-urban continuum codes (RUCA), and urban influence codes. 
+
+data/AHRF2025hp.csv contains county-level health professional variables, such as the number of non-federal primary care physicians, total number of specialists, specialty-level counts by speciality, and primary care designations. 
+
+data/AHRF2025pop.csv contains population statistics by county as well as information on mortality and socioeconomic status variables. 
+
+**Scripts: **
+
+00_pullandmerge: Loads the three AHRF 2024–2025 sub-files and merge them into a single flat county-level dataframe.
+
+01_clean: Selects analytic variables, enforces correct dtypes, constructs derived measures, filters implausible values, and produces the clean analytic dataset.
+
+02_plots: Produces the two starter visualizations described in Milestone 1. 
