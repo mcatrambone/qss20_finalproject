@@ -51,5 +51,4 @@ df = df.dropna(subset=["rurality"])
 print(f"After filtering: {df.shape}")
 
 # Save
-df.to_csv("analytic_ahrf.csv", index=False)
-print("Saved → analytic_ahrf.csv")
+df.to_csv("output/analytic_ahrf.csv", index=False)
