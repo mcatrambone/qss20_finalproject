@@ -1,0 +1,15 @@
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{llp{5cm}rrrrl}
+\toprule
+Model & Outcome & Predictors & Adj. R² & ΔR² vs Model 1 & Partial R² (Access) & CV R² & AIC \\
+\midrule
+Model 0 & All-cause mortality & RUCC Code & 0.350 & — & — & 0.349 & 45,879 \\
+Model 1 & All-cause mortality & RUCC Code + Age (\% under 65) + State FE & 0.715 & — & — & 0.688 & 43,400 \\
+Model 2 & All-cause mortality & RUCC Code + Age + State FE + PCP Density & 0.730 & +0.015 & — & 0.705 & 43,229 \\
+Model 3 & All-cause mortality & RUCC Code + Age + State FE + Primary Access Score & 0.718 & +0.003 & 0.011 & 0.691 & 43,369 \\
+Model 4 & All-cause mortality & RUCC Code + Age + State FE + Density + Access Score & 0.733 & +0.019 & 0.012 & 0.707 & 43,192 \\
+\bottomrule
+\end{tabular}
+\end{table}

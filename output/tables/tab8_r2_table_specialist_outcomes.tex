@@ -1,0 +1,25 @@
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{llp{5cm}rrrrl}
+\toprule
+Model & Outcome & Predictors & Adj. R² & ΔR² vs Model 1 & Partial R² (Access) & CV R² & AIC \\
+\midrule
+Model 0 & IHD mortality & RUCC Code & 0.216 & — & — & 0.209 & 29,784 \\
+Model 1 & IHD mortality & RUCC Code + Age (\% under 65) + State FE & 0.589 & — & — & 0.560 & 28,126 \\
+Model 2 & IHD mortality & RUCC Code + Age + State FE + Cardiologist Density & 0.591 & +0.002 & — & 0.559 & 28,112 \\
+Model 3 & IHD mortality & RUCC Code + Age + State FE + Cardiology Access Score & 0.589 & +0.001 & 0.002 & 0.561 & 28,124 \\
+Model 4 & IHD mortality & RUCC Code + Age + State FE + Density + Access Score & 0.592 & +0.003 & 0.002 & 0.561 & 28,109 \\
+Model 0 & Stroke mortality & RUCC Code & 0.114 & — & — & 0.103 & 18,375 \\
+Model 1 & Stroke mortality & RUCC Code + Age (\% under 65) + State FE & 0.606 & — & — & 0.503 & 16,819 \\
+Model 2 & Stroke mortality & RUCC Code + Age + State FE + EM Physician Density & 0.607 & +0.001 & — & 0.502 & 16,816 \\
+Model 3 & Stroke mortality & RUCC Code + Age + State FE + Emergency Access Score & 0.606 & +0.000 & 0.000 & 0.500 & 16,820 \\
+Model 4 & Stroke mortality & RUCC Code + Age + State FE + Density + Access Score & 0.606 & +0.001 & 0.000 & 0.498 & 16,817 \\
+Model 0 & Respiratory mortality & RUCC Code & 0.426 & — & — & 0.426 & 20,882 \\
+Model 1 & Respiratory mortality & RUCC Code + Age (\% under 65) + State FE & 0.647 & — & — & 0.638 & 19,866 \\
+Model 2 & Respiratory mortality & RUCC Code + Age + State FE + EM Physician Density & 0.676 & +0.028 & — & 0.657 & 19,681 \\
+Model 3 & Respiratory mortality & RUCC Code + Age + State FE + Emergency Access Score & 0.648 & +0.000 & 0.001 & 0.636 & 19,865 \\
+Model 4 & Respiratory mortality & RUCC Code + Age + State FE + Density + Access Score & 0.677 & +0.029 & 0.002 & 0.657 & 19,678 \\
+\bottomrule
+\end{tabular}
+\end{table}
