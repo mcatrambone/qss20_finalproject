@@ -2,12 +2,10 @@
 
 This project examines whether spatiotemporal access measures (E2SFCA gravity scores) explain county-level mortality variation beyond what physician density and rurality classification (RUCC codes) alone can capture. The analysis covers all contiguous U.S. counties using AHRF 2025, CDC PLACES, Census ACS 5-year, and OSRM drive-time data.
 
----
-
 ## Repository Structure
 
 ```
-data/               Raw and analytic data files (place inputs here)
+data/               Raw and analytic data files
 output/
   figures/          Choropleth maps, heatmaps, forest plots
   tables/           Summary statistics, regression results (.csv and .tex)
@@ -22,7 +20,7 @@ utils.py            Shared helper functions (imported by all scripts)
 
 ## Order to Run
 
-### 1. [utils.py](utils.py)
+### 1. [utils.py](code/utils.py)
 
 Shared utility functions imported by all other scripts. Do not run directly.
 
