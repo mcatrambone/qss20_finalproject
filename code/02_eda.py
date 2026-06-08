@@ -22,14 +22,14 @@ Inputs:
   data/analytic_dataset.csv
 
 Outputs:
-  output/tables/eda_summary_stats.csv / .tex
-  output/tables/eda_missingness_overall.csv / .tex
-  output/tables/eda_mortality_missingness_by_region.csv / .tex
-  output/tables/eda_access_rucc_correlation_by_region.csv / .tex
-  output/figures/choropleth_primary_access.png
-  output/figures/choropleth_specialist_access.png
-  output/figures/choropleth_behavior_rurality.png
-  output/figures/choropleth_mortality.png
+  output/tables/tab2_eda_summary_stats.csv / .tex
+  output/tables/tab6_eda_missingness_overall.csv / .tex
+  output/tables/tab6_eda_mortality_missingness_by_region.csv / .tex
+  output/tables/tab7_eda_access_rucc_correlation_by_region.csv / .tex
+  output/figures/fig1_choropleth_primary_access.png
+  output/figures/fig3_choropleth_specialist_access.png
+  output/figures/fig4_choropleth_behavior_rurality.png
+  output/figures/fig5_choropleth_mortality.png
 """
 
 import os
