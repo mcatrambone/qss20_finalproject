@@ -62,12 +62,3 @@ public/
     choropleth_primary_access.png       main choropleth triptych (real figure)
     correlation_heatmap_source.png      source heatmap (reference; recreated in recharts)
 ```
-
-## Notes on the figures
-
-- The **choropleth triptych** is the real rendered figure, served as a static
-  asset (no shapefiles or GeoJSON loaded at runtime).
-- The **correlation heatmap** is recreated in Recharts so it stays crisp and
-  responsive; values match the source figure exactly.
-- The **model fit** and **regional subgroup** tables are hand-coded from the
-  LaTeX outputs and styled with Tailwind.
