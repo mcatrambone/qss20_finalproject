@@ -60,31 +60,32 @@ Data ingestion and cleaning pipeline.
   * `data/osrm_cache.csv` — Cached drive-time matrix
   * `data/tract_pop_2022.csv` — Cached ACS 2022 tract population counts
 
----
-
 ### 3. [02_eda.py](code/02_eda.py)
 
 Exploratory and descriptive analysis.
 
 * **Inputs:**
+
   * `data/analytic_dataset.csv`
   * Plotly GeoJSON county boundaries (fetched automatically from GitHub)
 
 * **What it does:**
+
   * Builds a sample characteristics table
-  * Computes overall missingness for each variable and mortality missingness broken down by rural region 
+  * Computes overall missingness for each variable and mortality missingness broken down by rural region
   * Generates choropleth maps
   * Computes within-region partial Spearman correlations (residualized on age and state fixed effects) among RUCC code, PCP density percentile, and E2SFCA score percentile
 
 * **Outputs:**
+
   * `output/tables/tab2_eda_summary_stats.csv` / `.tex` — Table 2
   * `output/tables/tab6_eda_missingness_overall.csv` / `.tex` — Table 6, left panel
   * `output/tables/tab6_eda_mortality_missingness_by_region.csv` / `.tex` — Table 6, right panel
   * `output/tables/tab7_eda_access_rucc_correlation_by_region.csv` / `.tex` — Table 7
-  * `output/figures/choropleth_primary_access.png` — Figure 1 (RUCC code, PCP density, primary care E2SFCA score)
-  * `output/figures/choropleth_specialist_access.png` — Appendix Figure 4 (cardiology and emergency access)
-  * `output/figures/choropleth_behavior_rurality.png` — Appendix Figure 5 (rurality, smoking, obesity)
-  * `output/figures/choropleth_mortality.png` — Appendix Figure 6 (all-cause, IHD, stroke, respiratory mortality)
+  * `output/figures/fig1_choropleth_primary_access.png` — Figure 1 (RUCC code, PCP density, primary care E2SFCA score)
+  * `output/figures/fig3_choropleth_specialist_access.png` — Appendix Figure 3 (cardiology and emergency access)
+  * `output/figures/fig4_choropleth_behavior_rurality.png` — Appendix Figure 4 (rurality, smoking, obesity)
+  * `output/figures/fig5_choropleth_mortality.png` — Appendix Figure 5 (all-cause, IHD, stroke, respiratory mortality)
 
 ---
 
@@ -93,27 +94,33 @@ Exploratory and descriptive analysis.
 Correlation analysis and incremental weighted least squares (WLS) regression.
 
 * **Inputs:**
-  * `data/analytic_dataset.csv` 
+
+  * `data/analytic_dataset.csv`
 
 * **What it does:**
+
   * Computes a partial Spearman correlation matrix among all access measures, residualized on age composition and state fixed effects
-  * Computes partial Spearman correlations between each access measure and each mortality outcome; visualizes as a heatmap 
+  * Computes partial Spearman correlations between each access measure and each mortality outcome; visualizes as a heatmap
   * Fits five incremental WLS models per mortality outcome (population-weighted)
   * Generates forest plots showing RUCC code coefficient attenuation from Model 0 through Model 4 for each outcome
 
 * **Outputs:**
-  * `output/tables/tab3_access_correlations.csv` / `.tex` - Table 3
-  * `output/tables/tab6_access_mortality_relevant_correlations.csv` — Table 6
+
+  * `output/tables/tab3_access_correlations.csv` / `.tex` — Table 3
+
   * `output/tables/tab4_r2_table_primary_allcause.csv` / `.tex` — Table 4
+
   * `output/tables/tab8_r2_table_specialist_outcomes.csv` / `.tex` — Table 8
-    
-  * `output/figures/access_spearman_related_only.png` — Access measure correlation heatmap
-  * `output/figures/access_mortality_relevant_correlations.png` — Access–mortality heatmap
-    
-  * `output/figures/forest_mort_allcause.png` — Forest plot, all-cause mortality
-  * `output/figures/forest_mort_heart.png` — Forest plot, IHD mortality
-  * `output/figures/forest_mort_stroke.png` — Forest plot, stroke mortality
-  * `output/figures/forest_mort_resp.png` — Forest plot, respiratory mortality
+
+  * `output/figures/fig2_access_mortality_relevant_correlations.png` — Access–mortality correlation heatmap
+
+  * `output/figures/fig6_forest_mort_allcause.png` — Forest plot, all-cause mortality
+
+  * `output/figures/fig7_forest_mort_heart.png` — Forest plot, IHD mortality
+
+  * `output/figures/fig8_forest_mort_resp.png` — Forest plot, respiratory mortality
+
+  * `output/figures/fig9_forest_mort_stroke.png` — Forest plot, stroke mortality
 
 ---
 
@@ -122,10 +129,13 @@ Correlation analysis and incremental weighted least squares (WLS) regression.
 Focused subgroup comparisons for two geographically motivated hypotheses.
 
 * **Takes in:**
+
   * `data/analytic_dataset.csv` (output of `01_clean.py`)
 
 * **What it does:**
+
   * Defines two regional subgroups:
+
     * **H4 — Appalachian coal country** (KY, WV, VA, TN): tests whether E2SFCA access scores discriminate respiratory mortality risk better in this subgroup than nationally, motivated by the near-zero correlation between E2SFCA scores and RUCC in the region (ρ = −0.009)
     * **H6 — Great Plains** (ND, SD, NE, KS, OK): tests whether access measures retain discriminating power for IHD and stroke mortality when RUCC variation is compressed (mean RUCC = 8.54, near-zero SD)
   * Computes partial Spearman correlations (residualized on % under 65 and state fixed effects) for each predictor vs. each outcome in both the full national sample and the subgroup
@@ -133,6 +143,7 @@ Focused subgroup comparisons for two geographically motivated hypotheses.
   * Builds a parsed table retaining only rows where Δρ < −0.05 (access measure meaningfully stronger in subgroup) plus RUCC as reference
 
 * **Outputs:**
+
   * `output/tables/tab5_subgroup_comparison_parsed.csv` / `.tex` — Table 5: parsed rows where Δρ < −0.05, with RUCC reference
 
 ---
